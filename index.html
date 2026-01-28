@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#ffd6e9;
+  overflow:hidden;
+  text-align:center;
+  color:#3a003a;
+}
+
+/* halaman */
+section{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:28px;
+  opacity:0;
+  transform:scale(.95);
+  transition:all 1s ease;
+}
+
+section.active{
+  opacity:1;
+  transform:scale(1);
+  z-index:2;
+}
+
+h1{
+  font-size:2.6rem;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+p{
+  font-size:1.15rem;
+  max-width:480px;
+  margin-bottom:24px;
+  font-weight:600;
+}
+
+button{
+  padding:14px 38px;
+  border-radius:999px;
+  border:none;
+  background:linear-gradient(135deg,#ff5fa2,#ff9fcf);
+  color:white;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 14px 30px rgba(255,111,174,.5);
+}
+
+button:active{transform:scale(.92)}
+
+input{
+  padding:12px;
+  border-radius:14px;
+  border:3px solid #ff9fcf;
+  font-size:1rem;
+  margin-bottom:22px;
+  text-align:center;
+}
+
+.photo{
+  width:230px;
+  height:300px;
+  object-fit:cover;
+  border-radius:26px;
+  margin-bottom:20px;
+  box-shadow:0 18px 40px rgba(255,105,180,.4);
+  animation:fadeUp 1.4s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.bunny{
+  width:140px;
+  margin-bottom:22px;
+  animation:bounce 2.5s infinite;
+}
+
+@keyframes bounce{50%{transform:translateY(-14px)}}
+
+.cake{
+  font-size:130px;
+  cursor:pointer;
+}
+
+.name{
+  margin-top:22px;
+  font-weight:800;
+  font-size:1.4rem;
+  opacity:0;
+  animation:fadeIn 4s forwards;
+  animation-delay:2s;
+}
+
+@keyframes fadeIn{to{opacity:1}}
+
+.confetti{
+  position:fixed;
+  top:-10px;
+  width:10px;
+  height:10px;
+  animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+.strawberry{
+  position:fixed;
+  top:-40px;
+  font-size:24px;
+  animation:fallStraw 6s linear infinite;
+}
+
+@keyframes fallStraw{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<section class="active" id="login">
+  <img src="images/bunny.jpg" class="bunny">
+  <h1>HALO SAYANG</h1>
+  <p>Masukin password dulu ya 🤍</p>
+  <input type="password" id="pass">
+  <button onclick="doLogin()">MASUK</button>
+</section>
+
+<section id="p1">
+  <h1>HAPPY BIRTHDAY</h1>
+  <p>Hari ini, tanggal 29 Januari, pacar aku yang cantik ulang tahun ❤️</p>
+  <button onclick="next(2)">LANJUT</button>
+</section>
+
+<section id="p2">
+  <img src="images/Fathia1.jpeg" class="photo">
+  <p>Happy Birthday sayangku, ini kado online dulu ya, Kado real-nya nyusul n ini ada ucapan singkat dari aku 😌</p>
+  <button onclick="next(3)">LANJUT</button>
+</section>
+
+<section id="p3">
+  <img src="images/Fathia2.jpeg" class="photo">
+  <p>Semoga kamu selalu bahagia, sehat, dan semua cita-cita kamu tercapai buat jadi dokter sesuai keinginan kamu.
+     Aku siap nemenin kamu, aku mau diomelin, aku mau di sayang terus, aku mau nemenin kamu suka duka. intinya
+     bareng bareng terus yaaaaa. entah kedepannya banyak rintangan kita harus hadapin sayangku 🤍</p>
+  <button onclick="next(4)">LANJUT</button>
+</section>
+
+<section id="p4">
+  <img src="images/Fathia3.jpeg" class="photo">
+  <p>Dan yap semoga semua hal baik selalu menemukan kamu, di mana pun kamu berada 
+    entah disitu ada aku ataupun engga. btw kamu cantik banget, gaboleh insecure gendut dan jelek terus yah!
+  kamutu cantik banget dimata aku.</p>
+  <button onclick="next(5)">LANJUT</button>
+</section>
+
+<section id="p5">
+  <h1>BLOW THE CANDLE</h1>
+  <p>Klik kuenya dut maaf ini kado kecil dari aku yang dadakan dan singkat singkat yang intinya
+    AKU SAYANG KAMUUUUUU!>3 OIYA, jangan lupa berdoa ya dalem hati juga gapapa 🎂</p>
+  <div class="cake" onclick="blow()">🎂</div>
+</section>
+
+<section id="p6">
+  <h1>ALWAYS YOU</h1>
+  <p>
+    Thank you for making my life meaningful.  
+    Happy Birthday to the most special person in my life.  
+    I hope this year brings you peace, joy, and love.  
+    I hope we continue to celebrate our birthdays together until we grow old.
+  </p>
+  <div class="name">From Mas Adit to Fathia Cantikku</div>
+</section>
+
+<!-- AUDIO -->
+<audio id="music" loop muted>
+  <source src="music/music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let current = 0;
+
+function doLogin(){
+  const pass = document.getElementById('pass').value;
+  if(pass === 'fathia2901'){
+    document.getElementById('login').classList.remove('active');
+    next(1);
+
+    const music = document.getElementById('music');
+    music.muted = false;
+    music.volume = 0;
+    music.play().catch(err => console.log(err));
+
+    let v = 0;
+    const fade = setInterval(()=>{
+      if(v < 0.8){
+        v += 0.02;
+        music.volume = v;
+      } else clearInterval(fade);
+    },120);
+
+    strawberryRain();
+  }else{
+    alert('Password salah 😅');
+  }
+}
+
+function next(n){
+  if(current){
+    document.getElementById('p'+current).classList.remove('active');
+  }
+  document.getElementById('p'+n).classList.add('active');
+  current = n;
+}
+
+function blow(){
+  document.querySelector('.cake').innerText='🕯️';
+  for(let i=0;i<40;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=`hsl(${Math.random()*360},80%,70%)`;
+    document.body.appendChild(c);
+  }
+  setTimeout(()=>next(6),1500);
+}
+
+function strawberryRain(){
+  setInterval(()=>{
+    const s=document.createElement('div');
+    s.className='strawberry';
+    s.innerText='🍓';
+    s.style.left=Math.random()*100+'vw';
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),6000);
+  },500);
+}
+</script>
+
+</body>
+</html>
